@@ -6,6 +6,7 @@
         <button @tap='getUserInfo' open-type='getUserInfo'>获取用户信息</button>
         <button @tap='getData'>发送请求</button>
         <button @tap='goArticle'>到文章页</button>
+        <button @tap='goMap'>到地图页</button>
     </div>
 </template>
 
@@ -29,6 +30,11 @@ export default {
               url:'/pages/articles/main'
           })
 
+      },
+      goMap(){
+          wxp.navigateTo({
+              url:'/pages/map/main'
+          })
       },
       async getUserInfo(){
           try{
