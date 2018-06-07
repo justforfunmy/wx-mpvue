@@ -25,6 +25,7 @@ fly.interceptors.response.use(
         return response.data
     },
     (err, promise) => {
+        
         //发生网络错误后会走到这里
         //promise.resolve("ssss")
     }

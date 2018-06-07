@@ -7,6 +7,7 @@
         <button @tap='getData'>发送请求</button>
         <button @tap='goArticle'>到文章页</button>
         <button @tap='goMap'>到地图页</button>
+        <button @tap='goAMap'>到高德地图页</button>
     </div>
 </template>
 
@@ -34,6 +35,11 @@ export default {
       goMap(){
           wxp.navigateTo({
               url:'/pages/map/main'
+          })
+      },
+      goAMap(){
+          wxp.navigateTo({
+              url:'/pages/amap/main'
           })
       },
       async getUserInfo(){
