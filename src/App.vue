@@ -1,4 +1,5 @@
 <script>
+import wxp from 'minapp-api-promise'
 export default {
   created () {
     // 调用API从本地缓存中获取数据
@@ -7,7 +8,16 @@ export default {
     // wx.setStorageSync('logs', logs)
 
     console.log('app created and cache logs by setStorageSync')
+  },
+  async onLaunch(){
+    try{
+      let res = await wxp.checkSession();
+      console.log(res)
+    }catch(err){
+      console.log(err)
+    }
   }
+
 }
 </script>
 

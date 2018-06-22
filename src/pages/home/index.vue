@@ -4,11 +4,12 @@
         <button @tap='add'>加</button>
         <div>{{userInfo.nickName}}</div>
         <button @tap='getUserInfo' open-type='getUserInfo'>获取用户信息</button>
-        <button @tap='getData'>发送请求</button>
-        <button @tap='goArticle'>到文章页</button>
+        <!-- <button @tap='getData'>发送请求</button>
+        <button @tap='goArticle'>到文章页</button> -->
         <button @tap='goMap'>到地图页</button>
         <button @tap='goAMap'>到高德地图页</button>
         <button @tap='goTicket'>到门票页</button>
+        <button @tap='login'>login</button>
     </div>
 </template>
 
@@ -97,6 +98,23 @@ export default {
                 console.log(res)
             }catch(err){
                 console.log('请求失败')
+            }
+        },
+        async login(){
+            let code;
+            try{
+                let res = await wxp.login()
+                code = res.code;
+            }catch(err){
+                console.log(err)
+            }
+            try{
+                let res = await HttpService.login({
+                    code:code
+                });
+                console.log(res)
+            }catch(err){
+                console.log(err)
             }
         }
     }

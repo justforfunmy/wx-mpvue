@@ -3,12 +3,13 @@ import Fly from "flyio/dist/npm/wx";
 const fly = new Fly;
 
 //配置请求基地址
-fly.config.baseURL = "https://cnodejs.org/api/v1/"
+fly.config.baseURL = "https://lv1pf2cr.qcloud.la"
 
 // //添加请求拦截器
 fly.interceptors.request.use((config, promise) => {
     //给所有请求添加自定义header
     config.headers["X-Tag"] = "flyio";
+    console.log(config)
     wx.showLoading({
         title:'加载中'
     })

@@ -1,14 +1,17 @@
 import fly from '@/utils/fly'
 
-const GETARTICLES = 'topics'
+const LOGIN = '/weapp/login'
 
 export default {
     requestUrl:{
-        GETARTICLES
+        LOGIN
     },
-    getArticles(params){
-        return fly.get(this.requestUrl.GETARTICLES,{
-            ...params
+    login(params){
+        return fly.request(this.requestUrl.LOGIN,{},{
+            method:'GET',
+            headers:{
+                'X-WX-Code':params.code
+            }
         })
     }
 }
