@@ -41,7 +41,7 @@ export default {
         },
         goAMap(){
             wxp.navigateTo({
-                url:'/pages/amap/main'
+                url:'/pages/amap/main?params=1'
             })
         },
         goTicket(){

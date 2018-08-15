@@ -93,10 +93,17 @@ export default {
             })
         }
     },
-    onLoad(){
+    onLoad(e){
+        console.log(e)
         var that = this;
         myAmapFun = new amapFile.AMapWX({key:"a59e12827981c42488ea125efebd6a50"});
         
+    },
+    mounted(){
+        let pages = getCurrentPages();
+        //数组中最后一个即当前路由，options是参数
+        let {options} = pages.pop();
+        console.log(options)
     }
 }
 </script>
